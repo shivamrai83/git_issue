@@ -1,0 +1,176 @@
+/* Heading Nav Bar */
+
+.nav{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(15, 10, 10);
+  
+}
+
+.logo{
+  
+  width: 3%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+ margin-bottom: 5px;
+}
+
+/* Buttons from redux store */
+
+.button {
+  background-color: whitesmoke;
+  color: rgb(19, 5, 5);
+  padding: 7px;
+  text-align: center;
+  display: inline-block;
+  font-size: 21px;
+  margin: 20px 8px;
+  cursor: pointer;
+  width:auto;
+  border-radius: 8px;
+}
+
+.flex{
+  display: flex; 
+  width: 100%;
+  
+}
+.fb{
+margin-left: 3%;
+}
+
+.buttons{
+  margin-left: auto;
+  margin-right: 5%;
+}
+
+/* Router css */
+
+.link{
+  background-color: whitesmoke;
+  color: rgb(19, 5, 5);
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+  cursor: pointer;
+  width:auto;
+  margin-left: 2%;
+}
+
+/* search bar  */
+
+.filter_btn{
+  background-color: whitesmoke; 
+  color:black;
+  border: 2px solid #ccc;
+  padding: 8px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 0px 0px;
+  cursor: pointer;
+  width: 150px;
+  border-radius: 4px;
+  margin-left:5% ;
+}
+
+.text{
+  width:50%
+}
+
+input[type=text] {
+  width: 70%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 20px 12px 40px;
+}
+
+.btn123{
+  margin-left: 15%;
+}
+
+.filter_btn1{
+  background-color: whitesmoke; 
+  color:black;
+  border: 2px solid #ccc;
+  padding: 8px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 0px 0px;
+  cursor: pointer;
+  width: 170px;
+  border-radius: 4px;
+  
+}
+
+.filter_btn3{
+  background-color: green; 
+  color:white;
+  border: 2px solid #ccc;
+  padding: 8px 5px;
+  text-align: center;
+  display: inline-block;
+  font-size: 24px;
+  cursor: pointer;
+  width: 150px;
+  border-radius: 10px; 
+}
+
+/* Count */
+
+.open{
+margin-left: 4%;
+}
+
+.close{
+  margin-left: 1%;
+  text-decoration: rgb(212, 13, 13);
+}
+
+/* table */
+
+.table{
+  margin-left: 5%;
+}
+
+.tables {
+  border-collapse: collapse;
+  width: 90%;
+  border: 1px solid #ddd;
+  text-align: left;
+  
+}
+.td{
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 15px;
+}
+
+
+
+/* 
+.table_row{
+  background-color: whitesmoke; 
+  color:black;
+  border: 0.1px solid #ccc;
+  padding: 8px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+ 
+  cursor: pointer;
+  width: 100%;
+  border-radius: 4px;
+  
+} */
