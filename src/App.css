@@ -141,6 +141,8 @@ margin-left: 4%;
 
 .table{
   margin-left: 5%;
+  overflow-y: auto;
+  height:300px;
 }
 
 .tables {
@@ -157,20 +159,3 @@ margin-left: 4%;
 }
 
 
-
-/* 
-.table_row{
-  background-color: whitesmoke; 
-  color:black;
-  border: 0.1px solid #ccc;
-  padding: 8px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
- 
-  cursor: pointer;
-  width: 100%;
-  border-radius: 4px;
-  
-} */
