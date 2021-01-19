@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {Watch, Star, Fork, Fetch_Sucess, Fetch_Fail, Fetch_Start,Page} from './types'
+import {Watch, Star, Fork, Fetch_Sucess, Fetch_Fail, Fetch_Start,Page, Check} from './types'
 import { useSelector } from "react-redux";
 import store from './store'
 
@@ -62,5 +62,11 @@ export const fetchData=()=>{
             })
     }
 }
-console.log(store.getState().page.noOfPage)
-const page=1;
+console.log(store.getState().form);
+console.log(store.getState().checkbox);
+
+export const checkBox=()=>{
+    return {
+       type:Check
+    }
+}

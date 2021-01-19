@@ -1,4 +1,4 @@
-import {Watch, Star, Fork, Fetch_Sucess, Fetch_Fail, Fetch_Start,Page} from './types';
+import {Watch, Star, Fork, Fetch_Sucess, Fetch_Fail, Fetch_Start,Page, Check} from './types';
 
 const initialStateWatch={
     noOfWatch:0
@@ -17,6 +17,28 @@ const initialStateUser={
     users:[],
     error:''
 }
+
+const initialCheckbox={
+    display:true,
+}
+
+
+
+const CheckReducer=(state=initialCheckbox,action)=>{
+    switch (action.type) {
+        case Check:
+          return{
+              ...state,
+             display: !state.display
+          }          
+    
+        default:
+           return state
+    }
+}
+
+
+
 const PageReducer=(state=initialStatePage,action)=>{
     switch (action.type) {
         case Page:
@@ -96,5 +118,6 @@ export{
     WatchReducer,
     StarReducer,
     UserReducer,
-    PageReducer
+    PageReducer,
+    CheckReducer
 }

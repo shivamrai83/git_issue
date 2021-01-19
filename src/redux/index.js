@@ -1,1 +1,1 @@
-export {addWatch, addStar, addFork, fetchStart,fetchSucess,fetchFail,fetchData,addPage} from './action'
+export {addWatch, addStar, addFork, fetchStart,fetchSucess,fetchFail,fetchData,addPage,checkBox} from './action'

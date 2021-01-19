@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import "../App.css"
 import Issues from './issues'
+import Form from '../Redux_Form/Form'
+import UserPass from '../Redux_Form/UserPass'
 
 export default function RouterContent() {
   return (
@@ -15,7 +17,8 @@ export default function RouterContent() {
     <Router>
         <div>
         <div>
-            <Link className="link" to="/dummy">Code</Link>
+            <Link className="link" to="/code">Form</Link>
+            <Link className="link" to="/login">LogIn</Link>
             <Link className="link" to="/issues">Issues (495)</Link>
             <Link className="link" to="/dummy">Pull requests</Link>
             <Link className="link" to="/dummy">Discussion</Link>
@@ -31,7 +34,8 @@ export default function RouterContent() {
         <Switch>
           <Route path="/dummy" children={ <Dummy />} />
           <Route exact path="/issues" children={<Issues/>} />
-         
+          <Route path="/code" children={<Form/>}/>  
+          <Route path="/login" children={<UserPass/>}/>                
         </Switch>
       </div>
     </Router>
