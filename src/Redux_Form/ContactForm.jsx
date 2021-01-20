@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import {useSelector} from 'react-redux'
+import { submit } from 'redux-form'
+import {connect} from 'react-redux'
+import SubmitButton from './submitButton'
+import Reset from './reset'
 import "../App.css"
 
 //Validate Component
@@ -49,31 +53,34 @@ const renderField=({input,label,type, meta:{touched,error,warning}})=>(
   </div>
 )
 
-//Main Form Component
-const ContactForm = props => {
-  const { handleSubmit, submitting, pristine, reset } = props
 
-  const Show=(values)=>{
-    const save=window.confirm("Do u want to save this file");
-    if(save){
-    alert(JSON.stringify(values, null, 2));
-    localStorage.setItem("form",JSON.stringify(values));
-    }
-   
-  }
+
+
+
+
+
+
+
+//Main Form Component
+const ContactForm = (props) => {
+  const { handleSubmit, submitting, pristine, reset } = props
+  const state = useSelector(state => state.form.contact)
+
+  
+
   return (
     <div align="center">
-    <form onSubmit={handleSubmit(Show)}>
+    <form onSubmit={handleSubmit}>
       <div className="field">
-      <Field name="firstName"  component={renderField} type="text" label="Firstname"/>
+      <Field name="name"  component={renderField} type="text" label="Firstname" />
       </div>
       <Field name="age" component={renderField} type="text" label="Age"/>
 
       <label htmlFor="gender">Gender</label><br/>
         <label htmlFor="male">Male</label>
-        <Field name="sex" component={renderField} type="radio" value="male"/>
+        <Field name="gender" component={renderField} type="radio" value="male"/>
         <label htmlFor="female">Female</label>
-        <Field name="sex" component={renderField} type="radio" value="female"/><br/>
+        <Field name="gender" component={renderField} type="radio" value="female"/><br/>
 
         <label htmlFor="salary">Salary</label>
         <Field name="salary" component="select" type="select">
@@ -85,21 +92,41 @@ const ContactForm = props => {
         </Field><br/><br/>
 
         <Field name="occupation" component={renderField} type="text" label="Occupation"/>
-        <Field name="email" component={renderField} type="text" label="Email"/>
-        {/* <Field name="check" component={renderField} type="checkbox" label="True"/> */}
-        <br/>
-        <button type="submit" disabled={pristine || submitting}>Submit</button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
+        <Field name="email" component={renderField} type="text" label="Email"/><br/>
+      
     </form>
+    
+    <SubmitButton/>
+    <Reset/>
     </div>
   )
 }
 
+//onsubmitting the form these values will popup
+
+const Show=(values)=>{
+  const save=window.confirm("Do u want to save this file");
+  if(save){
+  alert(JSON.stringify(values, null, 2));
+  localStorage.setItem("form",JSON.stringify(values));
+  }
+}
+
+const ls=JSON.parse(localStorage.getItem("resetFields"));
+
 export default reduxForm({
   // a unique name for the form
   form: 'contact',
+  onSubmit:Show,
   validate,
   warn,
-  initialValues:{firstName:"Shivam",age:22,sex:"male",salary:"<10000",occupation:"Job",email:"shivamrai83@gmail.com"},
+  enableReinitialize:true,
+  // initialValues:{ name:"Shivam",
+  //                 age:22,
+  //                 gender: "male" ,
+  //                 salary:"<10000",
+  //                 occupation:"Job",
+  //                 email:"shivamrai83@gmail.com",
+  //               },
 })(ContactForm);                               
 

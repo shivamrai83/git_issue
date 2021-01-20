@@ -9,3 +9,5 @@ export const Fetch_Fail='Fetch_Fail';
 export const Fetch_Start="Fetch_Start";
 
 export const Check="Check";
+
+export const CHANGE="CHANGE";
