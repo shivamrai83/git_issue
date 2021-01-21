@@ -12,20 +12,7 @@ const rootReducer=combineReducers({
     fork:ForkReducer,
     user:UserReducer,
     page:PageReducer,
-    form:formReducer.plugin({
-        contact: (state, action) => { 
-          switch(action.type) {
-            case CHANGE:
-              return {
-                ...state,
-               name:"prince",
-              };
-            default:
-              return state;
-          }
-        }
-      }),
-    
+    form:formReducer
 })
 
 const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(thunk)));

@@ -66,7 +66,17 @@ const ContactForm = (props) => {
   const { handleSubmit, submitting, pristine, reset } = props
   const state = useSelector(state => state.form.contact)
 
-  
+useEffect(() => {
+  const ls={ name:"Shivam",
+  age:22,
+  gender: "male" ,
+  salary:"<10000",
+  occupation:"Job",
+  email:"shivamrai83@gmail.com",
+}
+  localStorage.setItem("default",JSON.stringify(ls));
+ 
+}, [])  
 
   return (
     <div align="center">
@@ -121,12 +131,6 @@ export default reduxForm({
   validate,
   warn,
   enableReinitialize:true,
-  // initialValues:{ name:"Shivam",
-  //                 age:22,
-  //                 gender: "male" ,
-  //                 salary:"<10000",
-  //                 occupation:"Job",
-  //                 email:"shivamrai83@gmail.com",
-  //               },
+  initialValues:JSON.parse(localStorage.getItem("default")),
 })(ContactForm);                               
 

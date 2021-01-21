@@ -1,33 +1,34 @@
 import React, { useState, useEffect } from 'react'
-import {reset} from 'redux-form'
-import {connect,useDispatch} from 'react-redux'
-import {CHANGE} from '../redux/types'
+import {change} from 'redux-form'
+import {connect} from 'react-redux'
 
-export default function Reset() {
+
+function Reset({dispatch}) {
     const [clicked,setClicked]=useState(false);
-    const [value,setValue] =useState("")
-    const dispatch = useDispatch()
-    useEffect(() => {
-        console.log(value);
-    }, [clicked,value])
+    const [value,setValue] =useState("");
+    const arr =value.split(",");
     
-    const onButtonClick=()=>{
-        const ar=value.split(",");
-        const arr=ar.reduce((acc,val)=>(acc[val]=val,acc),{});
-        localStorage.setItem("resetFields",JSON.stringify(arr));
-        console.log(arr);
-    }
+    const onDone=()=>{
+        const defaultObj=JSON.parse(localStorage.getItem("default"));
+        arr.forEach((val)=>
+            // const = name;
+            dispatch(change('contact',val,defaultObj[val]))
+        )
+        
+    } 
 
+   console.log(arr)
     return (
         <div>
             <button onClick={()=>setClicked(!clicked)}>Reset Button</button><br/>
             {clicked ?
             <div>
             <input type="text" name="value" value={value} onChange={(e)=>setValue(e.target.value)}/>
-            <button onClick={()=>dispatch({type:CHANGE})}>Done</button>
+            <button onClick={()=>onDone()}>Done</button>
             </div>
              : null
             }   
         </div>
     )
 }
+export default connect()(Reset);
