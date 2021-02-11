@@ -4,7 +4,7 @@ import Redux from './redux'
 import RouterContent from './router'
 import {Provider} from 'react-redux'
 import store from '../redux/store'
-import Test from './Test'
+
 
 
 export default function Project() {
@@ -14,7 +14,7 @@ export default function Project() {
             <Navbar/>
             <Redux/>
             <RouterContent/>
-            <Test/>
+          
             </Provider>
           
         </div>

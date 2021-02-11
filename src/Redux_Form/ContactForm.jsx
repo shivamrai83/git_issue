@@ -53,14 +53,6 @@ const renderField=({input,label,type, meta:{touched,error,warning}})=>(
   </div>
 )
 
-
-
-
-
-
-
-
-
 //Main Form Component
 const ContactForm = (props) => {
   const { handleSubmit, submitting, pristine, reset } = props

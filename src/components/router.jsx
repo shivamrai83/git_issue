@@ -10,7 +10,7 @@ import "../App.css"
 import Issues from './issues'
 import Form from '../Redux_Form/Form'
 import UserPass from '../Redux_Form/UserPass'
-
+import Test from './Test'
 export default function RouterContent() {
   return (
       <>
@@ -27,7 +27,7 @@ export default function RouterContent() {
             <Link className="link" to="/dummy">Wiki</Link>
             <Link className="link" to="/dummy">Security</Link>
             <Link className="link" to="/dummy">Insights</Link>
-            <Link className="link" to="/dummy">Settings</Link>
+            <Link className="link" to="/test">Test</Link>
         </div>
         <hr />
 
@@ -35,7 +35,8 @@ export default function RouterContent() {
           <Route path="/dummy" children={ <Dummy />} />
           <Route exact path="/issues" children={<Issues/>} />
           <Route path="/code" children={<Form/>}/>  
-          <Route path="/login" children={<UserPass/>}/>                
+          <Route path="/login" children={<UserPass/>}/>   
+          <Route path="/test" children={<Test/>}/>             
         </Switch>
       </div>
     </Router>
