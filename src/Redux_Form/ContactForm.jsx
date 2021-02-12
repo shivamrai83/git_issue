@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import SubmitButton from './submitButton'
 import Reset from './reset'
 import "../App.css"
+import axios from 'axios';
 
 //Validate Component
 const validate=values=>{
@@ -70,8 +71,11 @@ useEffect(() => {
  
 }, [])  
 
+  
   return (
+    
     <div align="center">
+      <button onClick={setApi}>submit api</button>
     <form onSubmit={handleSubmit}>
       <div className="field">
       <Field name="name"  component={renderField} type="text" label="Firstname" />
@@ -106,9 +110,18 @@ useEffect(() => {
 
 //onsubmitting the form these values will popup
 
+function setApi(values){
+  const {name,age,gender,salary,occupation,email}=values;
+  axios.post("http://localhost:3007/singup", {name,age,gender,salary,occupation,email}); 
+}
+
+
 const Show=(values)=>{
+  setApi(values);
   const save=window.confirm("Do u want to save this file");
+
   if(save){
+
   alert(JSON.stringify(values, null, 2));
   localStorage.setItem("form",JSON.stringify(values));
   }
